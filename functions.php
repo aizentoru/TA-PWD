@@ -12,4 +12,27 @@ function query($query){
     }
     return $rows;
 }
+
+
+function tambah($data){
+    global $con;
+
+     //ambil data tiap elemen dalam form
+     $nama = htmlspecialchars($data["nama_menu"]);
+     $gambar = htmlspecialchars($data["gambar"]);
+     $harga = htmlspecialchars($data["harga"]);
+
+     $query = "INSERT INTO menu VALUES ('','$nama', '$gambar', '$harga')";
+     mysqli_query($con, $query);
+     return mysqli_affected_rows($con);
+}
+
+
+function hapus($id){
+    global $con;
+    mysqli_query($con, "DELETE FROM menu WHERE ID = $id");
+    return mysqli_affected_rows($con);
+}
+
+
 ?>
