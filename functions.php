@@ -17,14 +17,14 @@ function query($query){
 function tambah($data){
     global $con;
 
-     //ambil data tiap elemen dalam form
-     $nama = htmlspecialchars($data["nama_menu"]);
-     $gambar = htmlspecialchars($data["gambar"]);
-     $harga = htmlspecialchars($data["harga"]);
+    //ambil data tiap elemen dalam form
+    $nama = htmlspecialchars($data["nama_menu"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+    $harga = htmlspecialchars($data["harga"]);
 
-     $query = "INSERT INTO menu VALUES ('','$nama', '$gambar', '$harga')";
-     mysqli_query($con, $query);
-     return mysqli_affected_rows($con);
+    $query = "INSERT INTO menu VALUES ('','$nama', '$gambar', '$harga')";
+    mysqli_query($con, $query);
+    return mysqli_affected_rows($con);
 }
 
 
@@ -34,5 +34,22 @@ function hapus($id){
     return mysqli_affected_rows($con);
 }
 
+function ubah($data){
+    global $con;
 
+    //ambil data yang di update dari form ubah.php
+    $id = $data["id"];
+    $nama = htmlspecialchars($data["nama_menu"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+    $harga = htmlspecialchars($data["harga"]);
+
+    $query = "UPDATE menu SET 
+                Nama_menu = '$nama', 
+                Gambar = '$gambar', 
+                Harga = '$harga' 
+                WHERE ID = $id";
+
+    mysqli_query($con, $query);
+    return mysqli_affected_rows($con);
+}
 ?>
