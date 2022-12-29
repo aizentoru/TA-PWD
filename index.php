@@ -33,7 +33,7 @@ $menu = query("SELECT * FROM menu");
             <img src="image/<?= $row["Gambar"]; ?>" width="80">
         </td>
         <td>
-            <a href="ubah.php">ubah</a> |
+            <a href="ubah.php?id=<?= $row['ID'] ?>">ubah</a> |
             <a href="hapus.php?id=<?= $row['ID']; ?>" onclick="return confirm('yakin hapus?');">hapus</a>
         </td>
     </tr>
@@ -43,5 +43,4 @@ $menu = query("SELECT * FROM menu");
 </table> 
 </body>
 </html>
-
 
