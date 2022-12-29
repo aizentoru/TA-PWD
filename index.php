@@ -14,6 +14,7 @@ $menu = query("SELECT * FROM menu");
     <h2>Daftar Menu</h2>
     <a href="tambah.php">Tambah data menu</a>
     <br><br>
+
 <table border="1" cellpadding = "10" cellspacing="0">
     <tr>
         <th>No.</th>
@@ -29,11 +30,11 @@ $menu = query("SELECT * FROM menu");
         <td><?= $row["Nama_menu"]; ?></td>
         <td><?= $row["Harga"]; ?></td>
         <td>
-            <img src="image/<?php echo $row["Gambar"]; ?>" width="80">
+            <img src="image/<?= $row["Gambar"]; ?>" width="80">
         </td>
         <td>
-            <a href="">ubah</a> |
-            <a href="">hapus</a>
+            <a href="ubah.php">ubah</a> |
+            <a href="hapus.php?id=<?= $row['ID']; ?>" onclick="return confirm('yakin hapus?');">hapus</a>
         </td>
     </tr>
     <?php $no++ ?>
@@ -42,4 +43,5 @@ $menu = query("SELECT * FROM menu");
 </table> 
 </body>
 </html>
+
 
